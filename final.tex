@@ -1,0 +1,186 @@
+% Created 2023-06-23 Fr 17:00
+% Intended LaTeX compiler: lualatex
+\documentclass[
+                egregdoesnotlikesansseriftitles,
+                paper=a4,
+                fontsize=13pt,
+                DIV=calc]{scrarticle}
+\input{articlepreamble.sty}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[outputdir=./build]{minted}
+\usepackage{svg}
+\usepackage{rotfloat}
+\author{Juan David Salcedo Hernández}
+\date{\today}
+\title{Una visión sobre las teorías gauge y cómo especificar nuevos modelos en física de partículas mediante el uso de la herramienta computacional \texttt{minimal\_lagrangians}. Verificaciones y perspectivas}
+\hypersetup{
+ pdfauthor={Juan David Salcedo Hernández},
+ pdftitle={Una visión sobre las teorías gauge y cómo especificar nuevos modelos en física de partículas mediante el uso de la herramienta computacional \texttt{minimal\_lagrangians}. Verificaciones y perspectivas},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.2 (Org mode 9.6.1)}, 
+ pdflang={English}}
+\usepackage{biblatex}
+\addbibresource{/home/juan/Personal/latex/2023/proyecto-final/references.bib}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{Introducción}
+\label{sec:org2d0c3e2}
+Referencias a utilizar:
+Para variedades diferenciables el libro \autocite{ballmann2015}. Para fibrados y demás
+preámbulos matemáticos a las teorías gauge los libros \autocite{hamilton2017},
+\autocite{deFaria2010} y \autocite{baum2009}. Para el programa computacional el artículo
+\autocite{may2021minimal}.
+
+Una teoría Gauge es un tipo de teoría de campos sobre la cual se exige simetría
+(es decir, invarianza) de los campos empleados bajo una cierta familia de
+transformaciones, a la cual, a su vez, se le exige conformar un grupo de Lie, a
+saber, un grupo bajo la composición que adicionalmente posea la estructura topológica
+de una veriedad diferenciable. La mayoría de los grupos de Lie que son de
+relevancia en la física son, de hecho, subgrupos del grupo lineal general
+\(GL(V)\) de todos los operadores lineales sobre un \(\mathbb{C}\)-espacio vectorial
+de dimensión finita \(V\). Dado que se pueden construir representaciones (es
+decir, homomorfismos) que mapean a los \(GL(V)\) en los grupos de matrices invertibles
+\(GL(n)\) mediante la selección de una base de \(V\), son estos últimos los que mayor
+importancia cobran en el estudio de las teorías físicas.
+
+Desde el punto de vista abstracto, el Lagrangiano correspondiente a una teoría
+de campos que involucre diferentes campos \(\varphi_1, \ldots, \varphi_n\) sobre
+el espacio-tiempo de Minkowski \(M = \mathbb{R}^{1,3}\) con métrica plana \(\eta =
+\text{diag}\,(-1, 1, 1, 1)\) no es más que una función \(\mathcal{L}\) de todos
+los campos, la cual contiene toda la dinámica y las interacciones de y entre dichos
+campos. Si el Lagrangiano de las teorías clásicas de campos daba lugar a las
+ecuaciones de movimiento a través de la minimización de la acción, en la teoría
+cuántica de campos cobrará su rol en la formulación de integrales de caminos,
+donde se usará para calcular la dinámica de las partículas elementales.
+
+Es así como, dado el contenido de campos de una teoría Gauge específica y el
+grupo de simetría bajo el cual tales campos deben ser invariantes, se hace
+palpable la necesidad de construir la función Lagrangiana. En principio hay, por
+supuesto, una cantidad incontable de Lagrangianos que se podrían construir dado
+el conjunto de campos; sin embargo, aquellos que resultan tener alguna
+significancia en la física son restringidos por la existencia de simetrías, la
+imposición de la condición de renormalización y la ausencia de anomalías Gauge.
+
+Es lícito pensar en la implementación de tales condiciones sobre el Lagrangiano
+para ser capaces de, dados los campos que tienen algún rol en la teoría,
+escribir el Lagrangiano más general posible. Con tal fin, se introducen
+herramientas computacionales orientadas a la construcción genérica de
+lagrangianos en teorías Gauge en física de partículas. En este informe
+explicamos, en específico, el funcionamiento del programa \texttt{minimal\_lagrangians}
+(Simon may) y se adelantan pruebas de calidad sobre el output que produce para
+el bien conocido modelo estándar de partículas elementales, así como para el
+modelo escotogénico (ref). Adicionalmente, se demuestra su correcto
+funcionamiento para la generación de los archivos que especifican el contenido
+de una teoría Gauge en SARAH.
+
+\subsection{Simetría del Lagrangiano}
+\label{sec:orgdbcfdb1}
+¿Qué significa? ¿Cómo restringe el Lagrangiano?
+
+\subsection{Renormalizablilidad del Lagrangiano}
+\label{sec:org2dbd824}
+¿Qué significa? ¿Cómo restringe el Lagrangiano?
+
+\subsection{Ausencia de anomalías Gauge en el Lagrangiano}
+\label{sec:org86e9f32}
+¿Qué significa? ¿Cómo restringe el Lagrangiano?
+
+\section{Contexto matemático sobre las teorías Gauge: una revisión compacta}
+\label{sec:orgc3ac83c}
+
+\subsection{Motivación}
+\label{sec:org0828073}
+Como trataremos de ilustrar a continuación, las teorías de gauge se ocupan
+fundamentalmente de \textbf{fibrados principales} y \textbf{fibrados vectoriales asociados}.
+El conceptos matemático subyacente a estos dos objetos es el \textbf{haz fibrado}, que
+puede ser pensado como un producto directo no trivial (``retorcido'') entre una
+variedad (base) \(M\) y una variedad (fibrada) \(F\). Los fibrados prinicpales y
+vectoriales serán entonces haces fibrados cuyas fibras son grupos de Lie y
+espacios vectoriales topológicos, respectivamente. En estos casos tendremos
+estructuras especiales sobre el fibrado.
+
+Adicionalmente, el concepto de \textbf{conexión sobre un fibrado principal} será de
+grandísima importancia para describir los \textbf{campos gauge}, cuyas excitaciones
+particulares en la teoría cuántica de campos dan lugar a los \textbf{bosones gauge},
+que transmiten interacciones. Por su parte, los \textbf{campos de materia} en el modelo
+estándar (por ejemplo quarks y leptones) y los \textbf{campos escalares} (como el
+Higgs) serán \textbf{secciones de fibrados vectoriales} asociadas a un fibrado
+principal (y retorcidas por \textbf{fibrados de espinores} en el caso de los
+fermiones). Tendremos, por tanto, las correspondencias siguientes:
+\begin{itemize}
+\item Los campos gauge serán conexiones en un fibrado principal sobre el espacio de
+Minkowski.
+\item Los campos de materia y los camppos escalares serán secciones sobre un fibrado
+vectorial asociado al fibrado principal.
+\end{itemize}
+
+La razón de la interacción entre los campos gauge y los de materia y escalares
+es que están ambos relacionados con el mismo fibrado principal.
+
+Por supuesto, nada de esto tiene mucho sentido hasta el momento, pero en lo que
+sigue nos ocuparemos de introducir las definiciones necesarias para comprender
+la estructura de una teoría gauge como el modelo estándar.
+
+\subsection{Variedades diferenciables}
+\label{sec:orgb8aec5c}
+\ldots{}
+
+\subsection{Haces fibrados}
+\label{sec:org4e569cd}
+Sean \(E, M\) variedades suaves y \(\pi : E \longrightarrow M\) una aplicación
+diferenciable sobreyectiva entre ellas.
+
+\subsection{Conexiones y curvatura}
+\label{sec:org9970201}
+\ldots{}
+
+\subsection{Espinores}
+\label{sec:org17f7eaa}
+\ldots{}
+
+\subsection{Campos gauge y partículas}
+\label{sec:org61d3807}
+\ldots{}
+
+\section{\texttt{minimal\_lagrangians}: recetas computacionales para la especificación de nuevos campos de materia}
+\label{sec:org5d56f62}
+
+Explicar toda la estructura del programa \texttt{minimal\_lagrangians} con detalles\ldots{}
+
+El trasfondo del programa se encuentra en la carpeta \texttt{min\_lag}, donde existen
+tres ficheros principales, en orden estructural:
+\begin{itemize}
+\item \texttt{fields.py}: contiene las clases que definen los diferentes campos de la teoría gauge.
+\item \texttt{terms.py}: contiene las clases y métodos que establecen las posibles combinaciones de campos bajo las restricciones de simetría, renormalización y ausencia de anomalías gauge.
+\item \texttt{models.py}: \ldots{}
+\end{itemize}
+
+\section{Verificación de la salida del programa \texttt{minimal\_lagrangians}}
+\label{sec:org23d7686}
+\subsection{Modelo estándar}
+\label{sec:org1a24f50}
+Presentamos el programa que se utiliza para testear minimal lagrangians para el modelo estándar.
+\subsection{Modelo escotogénico}
+\label{sec:orgc54d82e}
+Presentamos el programa que se utiliza para testear minimal lagrangians con el modelo escotogénico.
+
+\section{Perspectivas y conclusiones}
+\label{sec:org299f159}
+
+\section{Referencias}
+\label{sec:org167ac07}
+\printbibliography
+\end{document}

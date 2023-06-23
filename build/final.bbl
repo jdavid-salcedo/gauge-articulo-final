@@ -1,0 +1,161 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{anyt/global//global/global}
+    \entry{ballmann2015}{book}{}
+      \name{author}{1}{}{%
+        {{hash=d8ed5f7c8e26053b90363e21848bcc5c}{%
+           family={Ballmann},
+           familyi={B\bibinitperiod},
+           given={Werner},
+           giveni={W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{d8ed5f7c8e26053b90363e21848bcc5c}
+      \strng{fullhash}{d8ed5f7c8e26053b90363e21848bcc5c}
+      \strng{bibnamehash}{d8ed5f7c8e26053b90363e21848bcc5c}
+      \strng{authorbibnamehash}{d8ed5f7c8e26053b90363e21848bcc5c}
+      \strng{authornamehash}{d8ed5f7c8e26053b90363e21848bcc5c}
+      \strng{authorfullhash}{d8ed5f7c8e26053b90363e21848bcc5c}
+      \field{labelalpha}{Bal15}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Einführung in die Geometrie und Topologie}
+      \field{year}{2015}
+    \endentry
+    \entry{baum2009}{book}{}
+      \name{author}{1}{}{%
+        {{hash=256217223bcf045bb68edb684ef32698}{%
+           family={Baum},
+           familyi={B\bibinitperiod},
+           given={Helga},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{256217223bcf045bb68edb684ef32698}
+      \strng{fullhash}{256217223bcf045bb68edb684ef32698}
+      \strng{bibnamehash}{256217223bcf045bb68edb684ef32698}
+      \strng{authorbibnamehash}{256217223bcf045bb68edb684ef32698}
+      \strng{authornamehash}{256217223bcf045bb68edb684ef32698}
+      \strng{authorfullhash}{256217223bcf045bb68edb684ef32698}
+      \field{labelalpha}{Bau09}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Eichfeldtheorie}
+      \field{year}{2009}
+    \endentry
+    \entry{deFaria2010}{book}{}
+      \name{author}{2}{}{%
+        {{hash=5e11d2895829295363c4595330bc656e}{%
+           family={De\bibnamedelima Faria},
+           familyi={D\bibinitperiod\bibinitdelim F\bibinitperiod},
+           given={Edson},
+           giveni={E\bibinitperiod}}}%
+        {{hash=af6d2955e620ca6bd0ccc0d628904764}{%
+           family={De\bibnamedelima Melo},
+           familyi={D\bibinitperiod\bibinitdelim M\bibinitperiod},
+           given={Welington},
+           giveni={W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge university press}%
+      }
+      \strng{namehash}{f369571014faa1af6e8969daba85485f}
+      \strng{fullhash}{f369571014faa1af6e8969daba85485f}
+      \strng{bibnamehash}{f369571014faa1af6e8969daba85485f}
+      \strng{authorbibnamehash}{f369571014faa1af6e8969daba85485f}
+      \strng{authornamehash}{f369571014faa1af6e8969daba85485f}
+      \strng{authorfullhash}{f369571014faa1af6e8969daba85485f}
+      \field{labelalpha}{DD10}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Mathematical aspects of quantum field theory}
+      \field{volume}{127}
+      \field{year}{2010}
+    \endentry
+    \entry{hamilton2017}{book}{}
+      \name{author}{1}{}{%
+        {{hash=6736534d4b68662568b2492978b5d166}{%
+           family={Hamilton},
+           familyi={H\bibinitperiod},
+           given={Mark\bibnamedelima JD},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{6736534d4b68662568b2492978b5d166}
+      \strng{fullhash}{6736534d4b68662568b2492978b5d166}
+      \strng{bibnamehash}{6736534d4b68662568b2492978b5d166}
+      \strng{authorbibnamehash}{6736534d4b68662568b2492978b5d166}
+      \strng{authornamehash}{6736534d4b68662568b2492978b5d166}
+      \strng{authorfullhash}{6736534d4b68662568b2492978b5d166}
+      \field{labelalpha}{Ham17}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{With Applications to the Standard Model of Particle Physics}
+      \field{title}{Mathematical gauge theory}
+      \field{year}{2017}
+    \endentry
+    \entry{may2021minimal}{article}{}
+      \name{author}{1}{}{%
+        {{hash=d2c215f1dde92a14870f7858e07f14df}{%
+           family={May},
+           familyi={M\bibinitperiod},
+           given={Simon},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{d2c215f1dde92a14870f7858e07f14df}
+      \strng{fullhash}{d2c215f1dde92a14870f7858e07f14df}
+      \strng{bibnamehash}{d2c215f1dde92a14870f7858e07f14df}
+      \strng{authorbibnamehash}{d2c215f1dde92a14870f7858e07f14df}
+      \strng{authornamehash}{d2c215f1dde92a14870f7858e07f14df}
+      \strng{authorfullhash}{d2c215f1dde92a14870f7858e07f14df}
+      \field{labelalpha}{May21}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computer Physics Communications}
+      \field{title}{minimal-lagrangians: Generating and studying dark matter model Lagrangians with just the particle content}
+      \field{volume}{261}
+      \field{year}{2021}
+      \field{pages}{107773}
+      \range{pages}{1}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

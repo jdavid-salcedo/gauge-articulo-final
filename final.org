@@ -1,0 +1,139 @@
+#+title: Una visión sobre las teorías gauge y cómo especificar nuevos modelos en física de partículas mediante el uso de la herramienta computacional ~minimal_lagrangians~. Verificaciones y perspectivas
+#+AUTHOR: Juan David Salcedo Hernández
+#+LATEX_COMPILER: lualatex
+#+LATEX_CLASS: myarticle
+#+LATEX_HEADER: \usepackage{svg}
+#+LATEX_HEADER: \usepackage{rotfloat}
+#+PROPERTY: header-args:jupyter-python :exports both
+#+BIND: org-latex-image-default-width "0.8\\linewidth"
+
+# Bibliography
+#+BIBLIOGRAPHY: ./references.bib
+#+cite_export: biblatex
+
+* Introducción
+Referencias a utilizar:
+Para variedades diferenciables el libro [cite:@ballmann2015]. Para fibrados y demás
+preámbulos matemáticos a las teorías gauge los libros [cite:@hamilton2017],
+[cite:@deFaria2010] y [cite:@baum2009]. Para el programa computacional el artículo
+[cite:@may2021minimal].
+
+Una teoría Gauge es un tipo de teoría de campos sobre la cual se exige simetría
+(es decir, invarianza) de los campos empleados bajo una cierta familia de
+transformaciones, a la cual, a su vez, se le exige conformar un grupo de Lie, a
+saber, un grupo bajo la composición que adicionalmente posea la estructura topológica
+de una veriedad diferenciable. La mayoría de los grupos de Lie que son de
+relevancia en la física son, de hecho, subgrupos del grupo lineal general
+\(GL(V)\) de todos los operadores lineales sobre un \(\mathbb{C}\)-espacio vectorial
+de dimensión finita \(V\). Dado que se pueden construir representaciones (es
+decir, homomorfismos) que mapean a los \(GL(V)\) en los grupos de matrices invertibles
+\(GL(n)\) mediante la selección de una base de \(V\), son estos últimos los que mayor
+importancia cobran en el estudio de las teorías físicas.
+
+Desde el punto de vista abstracto, el Lagrangiano correspondiente a una teoría
+de campos que involucre diferentes campos $\varphi_1, \ldots, \varphi_n$ sobre
+el espacio-tiempo de Minkowski $M = \mathbb{R}^{1,3}$ con métrica plana $\eta =
+\text{diag}\,(-1, 1, 1, 1)$ no es más que una función \(\mathcal{L}\) de todos
+los campos, la cual contiene toda la dinámica y las interacciones de y entre dichos
+campos. Si el Lagrangiano de las teorías clásicas de campos daba lugar a las
+ecuaciones de movimiento a través de la minimización de la acción, en la teoría
+cuántica de campos cobrará su rol en la formulación de integrales de caminos,
+donde se usará para calcular la dinámica de las partículas elementales.
+
+Es así como, dado el contenido de campos de una teoría Gauge específica y el
+grupo de simetría bajo el cual tales campos deben ser invariantes, se hace
+palpable la necesidad de construir la función Lagrangiana. En principio hay, por
+supuesto, una cantidad incontable de Lagrangianos que se podrían construir dado
+el conjunto de campos; sin embargo, aquellos que resultan tener alguna
+significancia en la física son restringidos por la existencia de simetrías, la
+imposición de la condición de renormalización y la ausencia de anomalías Gauge.
+
+Es lícito pensar en la implementación de tales condiciones sobre el Lagrangiano
+para ser capaces de, dados los campos que tienen algún rol en la teoría,
+escribir el Lagrangiano más general posible. Con tal fin, se introducen
+herramientas computacionales orientadas a la construcción genérica de
+lagrangianos en teorías Gauge en física de partículas. En este informe
+explicamos, en específico, el funcionamiento del programa ~minimal_lagrangians~
+(Simon may) y se adelantan pruebas de calidad sobre el output que produce para
+el bien conocido modelo estándar de partículas elementales, así como para el
+modelo escotogénico (ref). Adicionalmente, se demuestra su correcto
+funcionamiento para la generación de los archivos que especifican el contenido
+de una teoría Gauge en SARAH.
+
+** Simetría del Lagrangiano
+¿Qué significa? ¿Cómo restringe el Lagrangiano?
+
+** Renormalizablilidad del Lagrangiano
+¿Qué significa? ¿Cómo restringe el Lagrangiano?
+
+** Ausencia de anomalías Gauge en el Lagrangiano
+¿Qué significa? ¿Cómo restringe el Lagrangiano?
+
+* Contexto matemático sobre las teorías Gauge: una revisión compacta
+
+** Motivación
+Como trataremos de ilustrar a continuación, las teorías de gauge se ocupan
+fundamentalmente de *fibrados principales* y *fibrados vectoriales asociados*.
+El conceptos matemático subyacente a estos dos objetos es el *haz fibrado*, que
+puede ser pensado como un producto directo no trivial ("retorcido") entre una
+variedad (base) \(M\) y una variedad (fibrada) \(F\). Los fibrados prinicpales y
+vectoriales serán entonces haces fibrados cuyas fibras son grupos de Lie y
+espacios vectoriales topológicos, respectivamente. En estos casos tendremos
+estructuras especiales sobre el fibrado.
+
+Adicionalmente, el concepto de *conexión sobre un fibrado principal* será de
+grandísima importancia para describir los *campos gauge*, cuyas excitaciones
+particulares en la teoría cuántica de campos dan lugar a los *bosones gauge*,
+que transmiten interacciones. Por su parte, los *campos de materia* en el modelo
+estándar (por ejemplo quarks y leptones) y los *campos escalares* (como el
+Higgs) serán *secciones de fibrados vectoriales* asociadas a un fibrado
+principal (y retorcidas por *fibrados de espinores* en el caso de los
+fermiones). Tendremos, por tanto, las correspondencias siguientes:
+- Los campos gauge serán conexiones en un fibrado principal sobre el espacio de
+  Minkowski.
+- Los campos de materia y los camppos escalares serán secciones sobre un fibrado
+  vectorial asociado al fibrado principal.
+
+La razón de la interacción entre los campos gauge y los de materia y escalares
+es que están ambos relacionados con el mismo fibrado principal.
+
+Por supuesto, nada de esto tiene mucho sentido hasta el momento, pero en lo que
+sigue nos ocuparemos de introducir las definiciones necesarias para comprender
+la estructura de una teoría gauge como el modelo estándar.
+
+** Variedades diferenciables
+...
+
+** Haces fibrados
+Sean \(E, M\) variedades suaves y \(\pi : E \longrightarrow M\) una aplicación
+diferenciable sobreyectiva entre ellas.
+
+** Conexiones y curvatura
+...
+
+** Espinores
+...
+
+** Campos gauge y partículas
+...
+
+* ~minimal_lagrangians~: recetas computacionales para la especificación de nuevos campos de materia
+
+Explicar toda la estructura del programa ~minimal_lagrangians~ con detalles...
+
+El trasfondo del programa se encuentra en la carpeta ~min_lag~, donde existen
+tres ficheros principales, en orden estructural:
+- ~fields.py~: contiene las clases que definen los diferentes campos de la teoría gauge.
+- ~terms.py~: contiene las clases y métodos que establecen las posibles combinaciones de campos bajo las restricciones de simetría, renormalización y ausencia de anomalías gauge.
+- ~models.py~: ...
+
+* Verificación de la salida del programa ~minimal_lagrangians~
+** Modelo estándar
+Presentamos el programa que se utiliza para testear minimal lagrangians para el modelo estándar.
+** Modelo escotogénico
+Presentamos el programa que se utiliza para testear minimal lagrangians con el modelo escotogénico.
+
+* Perspectivas y conclusiones
+
+* Referencias
+#+PRINT_BIBLIOGRAPHY:

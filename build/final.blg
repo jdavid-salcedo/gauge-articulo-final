@@ -1,0 +1,15 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is 'build/final.blg'
+[86] biber:340> INFO - === Fr Jun 23, 2023, 17:00:25
+[104] Biber.pm:419> INFO - Reading 'build/final.bcf'
+[179] Biber.pm:979> INFO - Found 5 citekeys in bib section 0
+[194] Biber.pm:4419> INFO - Processing section 0
+[205] Biber.pm:4610> INFO - Looking for bibtex file '/home/juan/Personal/latex/2023/proyecto-final/references.bib' for section 0
+[205] bibtex.pm:1713> INFO - LaTeX decoding ...
+[211] bibtex.pm:1519> INFO - Found BibTeX data source '/home/juan/Personal/latex/2023/proyecto-final/references.bib'
+[269] UCollate.pm:68> INFO - Overriding locale 'en-GB' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[269] UCollate.pm:68> INFO - Overriding locale 'en-GB' defaults 'variable = shifted' with 'variable = non-ignorable'
+[269] Biber.pm:4239> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'en-GB'
+[269] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-GB'
+[275] bbl.pm:660> INFO - Writing 'build/final.bbl' with encoding 'UTF-8'
+[277] bbl.pm:763> INFO - Output to build/final.bbl
